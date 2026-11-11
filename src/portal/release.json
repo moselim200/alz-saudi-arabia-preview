@@ -1,6 +1,6 @@
 {
-    "azureLandingZoneTemplateDetailsUri": "https://github.com/Azure/Enterprise-Scale/tree/2026-02-03",
-    "templateUri": "https://raw.githubusercontent.com/Azure/Enterprise-Scale/2026-02-03/eslzArm/eslzArm.json",
-    "templateUriBlob": "https://github.com/Azure/Enterprise-Scale/blob/2026-02-03/eslzArm/eslzArm.json",
-    "uiFormDefinitionUri": "https://raw.githubusercontent.com/Azure/Enterprise-Scale/2026-02-03/eslzArm/eslz-portal.json"
+    "azureLandingZoneTemplateDetailsUri": "https://github.com/moselim200/alz-saudi-arabia-preview/blob/main/docs/saudi-arabia-preview.md",
+    "templateUri": "https://raw.githubusercontent.com/moselim200/alz-saudi-arabia-preview/main/eslzArm/eslzArm.json",
+    "templateUriBlob": "https://github.com/moselim200/alz-saudi-arabia-preview/blob/main/eslzArm/eslzArm.json",
+    "uiFormDefinitionUri": "https://raw.githubusercontent.com/moselim200/alz-saudi-arabia-preview/main/eslzArm/eslz-portal.json"
 }

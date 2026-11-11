@@ -1,5 +1,10 @@
 # Azure Landing Zones (Enterprise-Scale) - Reference Implementation
 
+> **Saudi Arabia early-access customization:** start with the
+> [preview instructions](docs/saudi-arabia-preview.md), not the upstream deployment
+> button below. The first region picker discovers locations from your selected
+> subscription. This is not an official Microsoft release or a grant of region access.
+
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/azure/enterprise-scale.svg)](http://isitmaintained.com/project/azure/enterprise-scale "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/azure/enterprise-scale.svg)](http://isitmaintained.com/project/azure/enterprise-scale "Percentage of issues still open")
 [![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/Azure/Enterprise-Scale/badge)](https://scorecard.dev/viewer/?uri=github.com/Azure/Enterprise-Scale)

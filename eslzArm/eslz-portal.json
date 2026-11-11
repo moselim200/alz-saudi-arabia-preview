@@ -3,7 +3,7 @@
     "view": {
         "kind": "Form",
         "properties": {
-            "title": "Azure landing zone accelerator",
+            "title": "Azure landing zone accelerator - Saudi Arabia early access",
             "steps": [
                 {
                     "name": "basics",
@@ -55,10 +55,6 @@
                             ]
                         },
                         {
-                            "name": "resourceScope",
-                            "type": "Microsoft.Common.ResourceScope"
-                        },
-                        {
                             "name": "getSubscriptions",
                             "type": "Microsoft.Solutions.ArmApiControl",
                             "request": {
@@ -68,6 +64,54 @@
                                     "query": "ResourceContainers | where type =~ 'microsoft.resources/subscriptions' | where properties.state =~ 'enabled' | project label=tostring(name), description=subscriptionId, value=subscriptionId | order by label asc"
                                 }
                             }
+                        },
+                        {
+                            "name": "resourceScope",
+                            "type": "Microsoft.Common.Section",
+                            "label": "Deployment location - early access",
+                            "elements": [
+                                {
+                                    "name": "discoverySubscription",
+                                    "type": "Microsoft.Common.DropDown",
+                                    "label": "Subscription with region access",
+                                    "defaultValue": "[parse('[]')]",
+                                    "filter": true,
+                                    "toolTip": "Select an enabled subscription in the current directory with the Saudi Arabia region exception. This selection only discovers locations; choose platform subscriptions on the next tab.",
+                                    "constraints": {
+                                        "allowedValues": "[steps('basics').getSubscriptions.data]",
+                                        "required": true
+                                    }
+                                },
+                                {
+                                    "name": "getDeploymentLocations",
+                                    "type": "Microsoft.Solutions.ArmApiControl",
+                                    "condition": "[not(empty(steps('basics').resourceScope.discoverySubscription))]",
+                                    "request": {
+                                        "method": "GET",
+                                        "path": "[concat('/subscriptions/', steps('basics').resourceScope.discoverySubscription, '/locations?api-version=2022-12-01')]"
+                                    }
+                                },
+                                {
+                                    "name": "location",
+                                    "type": "Microsoft.Common.DropDown",
+                                    "label": "Region for deployment metadata",
+                                    "defaultValue": "[parse('[]')]",
+                                    "filter": true,
+                                    "toolTip": "Select the Saudi Arabia entry returned by your subscription. The API-provided name is used unchanged for the tenant deployment location.",
+                                    "constraints": {
+                                        "allowedValues": "[map(steps('basics').resourceScope.getDeploymentLocations.value, (item) => parse(concat('{\"label\":\"', item.displayName, '\",\"value\":{\"name\":\"', item.name, '\",\"displayName\":\"', item.displayName, '\"}}')))]",
+                                        "required": true
+                                    }
+                                },
+                                {
+                                    "name": "earlyAccessWarning",
+                                    "type": "Microsoft.Common.InfoBox",
+                                    "options": {
+                                        "style": "Warning",
+                                        "text": "Early-access test only. If no locations load or Saudi Arabia is absent, stop and check subscription access and the locations API response; no fallback region is supplied. Changing subscription requires rechecking the region. This is a tenant-scope deployment, and its location is also used by linked deployments, policy identities and some resource defaults. Subscription region access does not guarantee tenant deployment or individual service availability. Review all platform subscriptions and resource regions before deploying."
+                                    }
+                                }
+                            ]
                         },
                         {
                             "name": "getLocations",
