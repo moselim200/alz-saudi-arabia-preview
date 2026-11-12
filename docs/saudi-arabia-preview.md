@@ -62,8 +62,15 @@ tabs, subject to your residency requirements and the template's actual defaults.
 [Open the Saudi Arabia early-access accelerator](https://portal.azure.com/#blade/Microsoft_Azure_CreateUIDef/CustomDeploymentBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmoselim200%2Falz-saudi-arabia-preview%2Fmain%2FeslzArm%2FeslzArm.json/uiFormDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2Fmoselim200%2Falz-saudi-arabia-preview%2Fmain%2FeslzArm%2Feslz-portal.json)
 
 Opening this link loads the form; it is not evidence that a deployment succeeds.
-Confirm the title ends with **Saudi Arabia early access**. Do not use the upstream
-README deployment button or mix this UI with a different template version.
+Confirm the title ends with **Saudi Arabia early access**. This repository's
+README deployment button opens the same custom form. Do not use Microsoft's
+upstream deployment button or mix this UI with a different template version.
+
+If you see the plain **Azure landing zone accelerator** title and the native
+**Directory / Region** fields, without **Subscription with region access**, the
+custom UI has not loaded. Close that deployment blade and open the custom link
+above in a new tab. Use the commit-pinned link below if an older URL or cached
+form persists. Do not continue testing region visibility in the original picker.
 
 For repeatable customer testing, pin both URLs to the **same published commit**.
 From a checkout of this repository, generate a pinned link without deploying:

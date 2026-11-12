@@ -60,7 +60,11 @@ It is also assumed that readers have a broad understanding of key Azure construc
 
 The Azure Landing Zones (Enterprise-Scale Architecture) is modular by design and allows customers to start with foundational Landing Zones that support their application portfolios, regardless of whether the applications are being migrated or are newly developed and deployed to Azure. The architecture can scale alongside the customer's business requirements regardless of scale point. In this repository we are providing the following five templates representing different scenarios composed using ARM templates.
 
-[![Deploy To Azure](https://learn.microsoft.com/en-us/azure/templates/media/deploy-to-azure.svg)](https://aka.ms/alz/portal)
+[![Deploy To Azure](https://learn.microsoft.com/en-us/azure/templates/media/deploy-to-azure.svg)](https://portal.azure.com/#blade/Microsoft_Azure_CreateUIDef/CustomDeploymentBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmoselim200%2Falz-saudi-arabia-preview%2Fmain%2FeslzArm%2FeslzArm.json/uiFormDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2Fmoselim200%2Falz-saudi-arabia-preview%2Fmain%2FeslzArm%2Feslz-portal.json)
+
+This button opens this repository's Saudi Arabia early-access form. The
+[original Microsoft accelerator](https://aka.ms/alz/portal) does not include this
+customization.
 
 You can find all of the implementation options for Azure Landing Zones here: [aka.ms/alz/aac](https://aka.ms/alz/aac#platform)
 

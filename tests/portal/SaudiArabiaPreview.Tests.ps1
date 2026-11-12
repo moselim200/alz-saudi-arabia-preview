@@ -72,6 +72,9 @@ Describe 'Custom portal publication safety' {
         $template = [uri]::EscapeDataString($release.templateUri)
         $form = [uri]::EscapeDataString($release.uiFormDefinitionUri)
         $doc | Should -Match ([regex]::Escape("CustomDeploymentBlade/uri/$template/uiFormDefinitionUri/$form"))
+        $readme = Get-Content (Join-Path $root 'README.md') -Raw
+        $readme | Should -Match ([regex]::Escape("CustomDeploymentBlade/uri/$template/uiFormDefinitionUri/$form"))
+        $readme | Should -Not -Match '\[!\[Deploy To Azure\][^\r\n]*\]\(https://aka\.ms/alz/portal\)'
     }
 
     It 'retains all literal relative linked templates at their original paths' {
